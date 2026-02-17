@@ -1,9 +1,12 @@
-
 const express = require("express");
 const router = express.Router();
-const tasks = require("./db");
+const tasks = require("../bd/bd");
 
-router.post("/", (req,res) =>{
+const { validateTaskRequests } = require("../middleware/validateTaskMiddleware");
+
+router.use(validateTaskRequests);
+
+router.post("/", (req, res) => {
     res.send("Endpoint POST: Crear y Editar tarea");
 });
 

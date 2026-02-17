@@ -9,13 +9,11 @@ app.use(express.json());
 const validateHttpMethods = require("./middleware/validateHttpMethods");
 app.use(validateHttpMethods);
 
-const listViewRouter = require("./route/list-view-router");
-const listEditRouter = require("./route/list-edit-router");
+const tasksRouter = require("./route/tasks-router");
 const authRouter = require("./route/auth-router");
 const protectedRouter = require("./route/protected-router");
 
-app.use("/api", listViewRouter);
-app.use("/api", listEditRouter);
+app.use("/api", tasksRouter);
 app.use("/api", authRouter);
 app.use("/api", protectedRouter);
 
